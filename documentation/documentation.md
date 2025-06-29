@@ -1,12 +1,12 @@
 # Important commands to know
 
-`cargo new (project_name)` -> inititalizing a new project
-`cargo build` -> builds the whole project/compiles the whole project (?)
-`cargo check` -> just checks if the code can compile without compiling
-`cargo run` -> runs the program
+- `cargo new (project_name)` -> inititalizing a new project
+- `cargo build` -> builds the whole project/compiles the whole project (?)
+- `cargo check` -> just checks if the code can compile without compiling
+- `cargo run` -> runs the program
 
-`touch <file name>.rs` -> makes a new rs file
-`rustc` -> compiles the .rs file
+- `touch <file name>.rs` -> makes a new rs file
+- `rustc` -> compiles the .rs file
 
 # Basics
 ## Varibles and Constants
