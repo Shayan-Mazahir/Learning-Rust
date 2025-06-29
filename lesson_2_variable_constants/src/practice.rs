@@ -164,6 +164,7 @@ fn main() {
 }
 
 /*
+NEEDA DO THIS AGAIN
 CYBERSECURITY CONCEPTS COVERED:
 - Authentication state tracking (mutable vs immutable)
 - Scope-based security contexts
