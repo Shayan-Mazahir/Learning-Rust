@@ -46,5 +46,5 @@ const ADMIN_PRIVILEGES: &str = "ADMIN";
 - Immutable forever: Cannot be changed, ever
 - Compile-time values: Must be calculable at compile time
 - Global scope: Available throughout the program
-- Type required: Must explicitly specify the type
+- Type required: Must explicitly specify the type 
 - Naming convention: SCREAMING_SNAKE_CASE
