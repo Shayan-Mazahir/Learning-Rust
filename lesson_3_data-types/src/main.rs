@@ -1,3 +1,10 @@
+//STRUCTS
+#[derive(Debug)]
+struct Person {
+    name: String,
+    age: u8,
+}
+
 fn main() {
     println!("There are different data types in rust. Scalar, Compund and Custom types.");
     println!("Scalar Types: \n 1. Integers:");
@@ -12,14 +19,46 @@ fn main() {
     arch    isize                            usize
     */
 
-    let number: i8 = -1;
-    let number2: i8 = 1;
-    
-    println!("Number is {}", number);
-    println!("Number is {}", number2);
-    
-    let number3: u8 = 1;
+    let decimal = 9820;
+    let hex = 0xff; //converts
+    let octal = 0o77; //converts
+    let binary = 01010101;
+    let byte = b'A'; //converts
 
-    println!("Number is {}", number3);
+    println!("Decimal is {}", decimal);
+    println!("Hex is {}", hex);
+    println!("Octal is {}", octal);
+    println!("Binary is {}", binary);
+    println!("Byte is {}", byte);
+
+    //FLOATING POINTS
+    let x: f32 = 2.5;
+    let y = 2.0;
+
+    println!("Addition of x and y gives us {}", x+y);
+    println!("Division of x and y gives us {}", x/y);
+    println!("Remainder of x and y gives us {}", x%y);
+
+    //Tuples
+    let tup: (i32, f64, char) = (500, 6.4, 'x');
+
+    let (x, y, z) = tup;
+    println!("The value of y is {}", y);
+
+    println!("The value of 500 is: {}", tup.0);
+    //you can access a tuple like a list/dictionary
+
+
+    //ARRAYS
+    let arr = [1, 2, 3, 4, 5]; //array of 5 elements
+    
+    println!("First value in the array is {}", arr[0]);
+
+
+    let person = Person {
+        name: String::from("John"),
+        age: 25,
+    };
+    print!("Person is {:?}", person);
 
 }
