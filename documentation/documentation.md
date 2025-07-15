@@ -5,6 +5,9 @@
 2. [Variables and Constants](#variables-and-constants)
 3. [Data Types](#data-types)
 4. [Structs](#structs)
+5. [Functions](#functions)
+6. [Control Flow](#control-flow)
+7. [Loops](#loops)
 
 ---
 
@@ -193,5 +196,240 @@ The `#[derive(Debug)]` attribute automatically implements the `Debug` trait for 
 - Provides a default debug representation
 - Is essential for debugging and development
 - **Without it, you cannot print the struct directly**
+
+---
+
+## Functions
+
+Functions are sets of statements that perform a specific task. They are defined using the `fn` keyword.
+
+### Basic Function Syntax
+
+```rust
+fn function_name() {
+    // Function body
+}
+```
+
+### Simple Function Example
+
+```rust
+fn simple_function() {
+    println!("Me is a simple function");
+}
+```
+
+### Functions with Parameters
+
+Functions can accept parameters to work with different data.
+
+```rust
+fn two_parameter(num1: i32, num2: i32) {
+    println!("I have 2 parameters");
+    println!("The two numbers are: {num1} and {num2}. Their sum is: {}", num1 + num2);
+}
+```
+
+### Statements vs Expressions
+
+- **Statements:** Instructions that perform actions but don't return values (end with `;`)
+- **Expressions:** Code that evaluates and returns a value (no `;` at the end)
+
+```rust
+fn another_function() {
+    let x: i32 = 5;  // Statement
+    let y: i32 = 6;  // Statement
+    let z: i32 = x + y;  // Statement (x + y is an expression)
+    println!("The value of z is: {z}");
+}
+
+fn expression_example() {
+    let y: i32 = {
+        let x: i32 = 3;
+        x + 2  // Expression - no semicolon!
+    };
+    println!("The value of y is: {y}");
+}
+```
+
+### Functions with Return Values
+
+Functions can return values using the `->` syntax.
+
+```rust
+fn return_function(num1: i32, num2: i32) -> (i32, String) {
+    let x = num1 + num2;
+    let y = format!("The sum of the two numbers is: {}", x);
+    (x, y)  // Return tuple - no semicolon!
+}
+
+// Usage
+let result = return_function(10, 20);
+println!("x: {}", result.0);
+println!("y: {}", result.1);
+```
+
+**Function Return Rules:**
+- Use `->` to specify return type
+- Last expression is automatically returned (no `return` keyword needed)
+- Don't use semicolon on the final expression
+- Can return tuples for multiple values
+
+---
+
+## Control Flow
+
+Control flow allows your program to make decisions and execute different code paths.
+
+### If Expressions
+
+```rust
+let number = 3;
+
+if number < 5 {
+    println!("Number is less than 5");
+} else if number > 5 {
+    println!("Number is greater than 5");
+} else {
+    println!("Number is 5");
+}
+```
+
+### If in Let Statements
+
+Since `if` is an expression, you can use it in `let` statements.
+
+```rust
+let condition = true;
+let number = if condition {
+    5
+} else {
+    6
+};
+println!("The value of the number is {number}");
+```
+
+**Important:** Both branches must return the same type!
+
+### Match Expressions
+
+Match is a powerful pattern matching construct, similar to switch statements but more powerful.
+
+```rust
+enum Coin {
+    Penny,
+    Nickel,
+    Dime,
+    Quarter,
+}
+
+fn value_in_coin(coin: Coin) -> u8 {
+    match coin {
+        Coin::Penny => 1,
+        Coin::Nickel => 5,
+        Coin::Dime => 10,
+        Coin::Quarter => 25,
+    }
+}
+
+let coin = Coin::Penny;
+println!("Value of coin is {}", value_in_coin(coin));
+```
+
+**Match Characteristics:**
+- Must be exhaustive (cover all possibilities)
+- More powerful than if/else for complex conditions
+- Can match on enums, literals, ranges, and more
+
+---
+
+## Loops
+
+Rust provides several types of loops for repetitive tasks.
+
+### 1. Infinite Loop (`loop`)
+
+```rust
+loop {
+    println!("This runs forever!");
+    // Use 'break' to exit
+}
+```
+
+### 2. While Loops
+
+Loops that continue while a condition is true.
+
+```rust
+let mut i = 10;
+while i != 0 {
+    println!("{i}");
+    i -= 1;
+}
+println!("DONE!");
+```
+
+### 3. For Loops
+
+The most common loop type for iterating over collections.
+
+#### Looping Through Arrays
+
+```rust
+let array = [1, 2, 3, 4, 5];
+
+// Method 1: Using indices (not recommended)
+let mut x: usize = 0;
+while x < array.len() {
+    println!("The value at index {x} is: {}", array[x]);
+    x += 1;
+}
+
+// Method 2: Direct iteration (recommended) - secure way
+for element in array {
+    println!("The value is: {element}");
+}
+```
+
+#### Range Loops
+
+```rust
+// Forward range
+for number in (1..4) {
+    println!("{number}");  // Prints 1, 2, 3
+}
+
+// Reverse range
+for number in (1..4).rev() {
+    println!("{number}");  // Prints 3, 2, 1
+}
+```
+
+### 4. Loop with Return Values
+
+Loops can return values when broken.
+
+```rust
+let mut counter = 0;
+let result = loop {
+    counter += 1;
+    if counter == 10 {
+        break counter;  // Return counter value
+    }
+};
+println!("The result is {result}");
+```
+
+### Loop Control
+
+- `break` - Exit the loop immediately
+- `continue` - Skip to the next iteration
+- `break value` - Exit loop and return a value
+
+**Best Practices:**
+- Use `for` loops for iterating over collections
+- Use `while` loops for condition-based repetition
+- Use `loop` for infinite loops that break on specific conditions
+- Avoid manual indexing when possible - use iterators instead
 
 ---
