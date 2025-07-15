@@ -1,4 +1,3 @@
---- -->
 # Rust Basics Documentation
 
 ## Table of Contents
