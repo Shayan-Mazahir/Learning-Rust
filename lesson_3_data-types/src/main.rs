@@ -1,5 +1,5 @@
 //STRUCTS
-#[derive(Debug)]
+#[derive(Debug)] //why do we need this though?
 struct Person {
     name: String,
     age: u8,
@@ -55,6 +55,7 @@ fn main() {
     println!("First value in the array is {}", arr[0]);
 
 
+    //custom type: stricts
     let person = Person {
         name: String::from("John"),
         age: 25,
