@@ -8,6 +8,7 @@
 5. [Functions](#functions)
 6. [Control Flow](#control-flow)
 7. [Loops](#loops)
+8. [Come Back to](#come-back-to)
 
 ---
 
@@ -433,3 +434,7 @@ println!("The result is {result}");
 - Avoid manual indexing when possible - use iterators instead
 
 ---
+
+### Come Back To
+- Practice:
+    - lesson_1_lesson_5 (re-do with structs)
