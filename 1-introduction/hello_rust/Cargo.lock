@@ -3,5 +3,5 @@
 version = 4
 
 [[package]]
-name = "lesson_3_data-types"
+name = "hello_rust"
 version = "0.1.0"
