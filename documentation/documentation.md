@@ -434,7 +434,3 @@ println!("The result is {result}");
 - Avoid manual indexing when possible - use iterators instead
 
 ---
-
-### Come Back To
-- Practice:
-    - lesson_1_lesson_5 (re-do with structs)
